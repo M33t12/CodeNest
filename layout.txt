@@ -1,0 +1,204 @@
+Here Detailed project Information : 
+
+Technologies : 
+Frontend: React , react-router-dom , zustand(for state management) , tailwindcss 
+Backend : MongoDB , express.js
+
+Module : User module
+I want role based access : Which user have which permissions ? 
+Two roles :
+
+User : Normal User
+Admin : Specialized user :
+
+What user can do ? 
+-- user can upload resources , view resources upload by other users:
+-- Resources have type : [pdf, link , image, text-if user want to add , blogs]
+
+What Admin can do ?
+For Resources that are added by any users , first goes to the admin to verify the resource, if resource permits then the resource will be visible in website
+Admin dashboard have all users data like [no of users, open the profile of each user , view each user's profile---> contains how many resources are uploaded by users, and also view particular resource]
+-Admin can add other admins
+-admin have the rights to block other users also...
+-admin have all the information of all users of website
+
+How admin verify the resources ::
+1. user upload the resource.
+2. Resource is sent to the admin for verification.
+3. Admin can verify the resources by Ai-Model, Ai-model give verdicts based on the authenticity of resource,subject-area,is it useful or not
+4. Based on the Ai-model verdicts Admin can approve the resources/reject the resources.
+5. after approval it will be displayed to all the users in resources section of website.
+
+
+Module : Resources 
+Display all resources added by users, resources can be filter out based on the ratings of other users, by subject , by link , pdfs, blogs
+resource model :
+Each resource have following and includes that are necessary to handle :
+--resource name
+--subject
+--type of resource[pdf, link, blog,image,etc]
+--rating of resource
+-- by users[on the scale of 1-5];
+--upload by which user
+
+Module : DSA Practice
+-- Specialized module for only user 
+-- User can practice their DSA Questions by topic wise and tracks the progress
+-- User can solve Questions directly to Leetcode throgh redirection
+
+This module contains DSA Questions :
+Each Question include information:
+-- In which topic question belongs to
+-- can be tracked as solved/unsolved/attempted--similar
+-- level of question : easy/medium/hard
+
+Any other information that needed for tracking
+
+Module : AI Module:
+Contains two main Parts :
+1. AI model generates Quiz (It generates Quiz for subject or any study subject)
+--based on the information : 
+----no_of_question
+----type_of_subject
+----level_of_question_generates
+----or include any similar information
+
+2.AI Model Takes Interview of user : 
+AI takes interview session based on the information:
+-- technical or non-technical
+-- if interview is technical --> For which particular field or subject 
+-- For non-technical --> takes interview for checking communication/verbal-communication skills
+
+Module : User Profile 
+-- Gives all information about his profile:
+-- How many resources are uploaded by user
+-- includes all resources uploaded by users , user's profile information[like email, linkedin , github profile , and other information ]
+-- user should modify the information of his/hers blog before approval.
+-- Get the information of all quizzes that AI generates for him, and scores that user get in each quizzes ,include information of quizzes
+-- Get the information of DSA Tracking of user profile : 
+--How many question solved by user
+--question solved in hard/medium/easy level
+
+Frontend : uses JSX syntax for writing code
+Backend : use javascript syntax
+
+User Authentication :
+-- Done using the jwt and bcryptjs
+
+#Resources Module :
+-- Authentication of user is done by jwt ,
+-- user upload resource , show its status in its profile , 
+-- User can upload the resource related to computer Science in resource module:
+-- Resources have ratings on the scale of 0 to 5
+-- after upload resources the resources are goes to admin : 
+-- admin verify the resources through AI Agent and Give suggestions to approved or not
+-- if AI Agent gives positive feedback then , Resources are approved by admin
+-- now User's resource is visible to all the users
+
+
+Idea About Resource Module :
+-- User can upload resources in resource section :
+-- Resource can be anything (PDF , Images , Any link of Resource , Blogs ,Markdown File)
+-- I want one form where if user selects resources like pdf ,images then it handles by cloudinary to store and manage
+and then link stored in the database , i want one editor where i can write the blogs with images and text and some formatting tools,
+-- After resource is uploaded ,, resources are sent to the admin for verification of resources,
+-- resource status must be visible to user in their profile section and he can saw all the resources upload by him/her
+-- Admin verify the resource using AI Model and Gives feedback for authentic resource , 
+-- if AI gives positive feedback then admin approved resource 
+-- approved resources visible to all users under resource section...
+-- To view the resource , resource must be viewable , all type of resources like image ,pdf ,markdown file or blogs..
+-- use different route for view specific resource...
+
+
+Admin Modules::
+Admin Have this type of analytics ::
+1. user management
+-- delete user
+-- block/unblock user
+-- promote/demote to or from admin
+2.resource management
+-- approve/reject resource
+-- analyze/re-analyze the uploaded resources for approval/rejection
+-- based on the response of ai-agent it approve/reject
+-- detail ai-analysis also there
+3.Ai-dashboard-analysis
+4.analytics and report
+
+DSA Module:
+1.Use Leetcode Graphql API for listing the problems
+2.Use JWT based Authentication.
+3.Listing of problems with Filters by difficulty, by topics and search by Title also.
+4.Problem can be solved in real-time by redirecting to the LeetcodePlatform.
+5.Problem can be marked as solved, attempted , not-started.
+6.You can also add notes to each problem ::
+-- adding notes, solution-approach , time-taken....
+I've created a comprehensive features document for your DSA Practice Module! Here's what I've included:
+
+## 📋 **Features Breakdown:**
+
+### **10 Major Feature Categories:**
+
+1. **📚 Problem Management**
+   - Problem details & metadata
+   - Auto-sync with LeetCode
+   - 50+ topic categories
+
+2. **🔍 Advanced Filtering & Search**
+   - Real-time search
+   - Multi-level filters (difficulty, topic, status)
+   - Filter combinations
+   - Reset functionality
+
+3. **✅ Progress Tracking System**
+   - 3-level status (Not Started/Attempted/Solved)
+   - Automatic timestamps
+   - Detailed statistics
+   - Performance metrics
+
+4. **📝 Notes & Learning System**
+   - 5000-char notes per problem
+   - Solution approach documentation
+   - Custom tags
+   - Time tracking
+
+5. **📊 Statistics Dashboard**
+   - Visual analytics with cards
+   - Progress charts by difficulty
+   - Real-time updates
+   - Interactive visualizations
+
+6. **🔗 LeetCode Integration**
+   - Direct problem links
+   - Auto-sync problem data
+   - Daily challenge support
+   - Premium problem identification
+
+7. **🎨 User Experience Features**
+   - Beautiful modern UI
+   - Responsive design (desktop/tablet/mobile)
+   - Color-coded system
+   - Performance optimized
+
+8. **📄 Pagination & Navigation**
+   - 50 problems per page
+   - Smart page numbers
+   - Previous/Next buttons
+   - Smooth scrolling
+
+9. **💾 Data Persistence**
+   - Local storage
+   - Backend sync
+   - Cross-device support
+   - Auto-save
+
+10. **🪟 Modal Interfaces**
+    - Full-screen note modal
+    - Multiple sections
+    - Validation & notifications
+    - Character counters
+
+### **Additional Features:**
+- 🔐 Security features (JWT auth, XSS protection)
+- 🚀 Performance optimizations
+- 📊 Analytics & insights
+- 🎁 Quality of life improvements

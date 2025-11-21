@@ -1,0 +1,19 @@
+# Node modules (should NOT be pushed to GitHub)
+node_modules/
+
+# Environment files (secret keys)
+.env
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+# VS Code folder
+.vscode/
+
+# Uploaded files (optional)
+uploads/
+
+# OS generated files
+.DS_Store
+Thumbs.db
